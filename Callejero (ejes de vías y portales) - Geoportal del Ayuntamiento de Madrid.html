@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+<!--[if IE 8]>         <html class="no-js ie8" lang="es" xml:lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" xml:lang="es"> <!--<![endif]-->
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+	<title>Callejero (ejes de vías y portales) - Geoportal del Ayuntamiento de Madrid</title>
+	<meta name="title" content="Callejero (ejes de vías y portales) - Geoportal del Ayuntamiento de Madrid" />
+
+	
+	<meta name="description" content="Callejero (ejes de vías y portales) - Geoportal del Ayuntamiento de Madrid" />
+
+	
+	<meta name="keywords" content="Conjunto de datos, resumen, descripción, fecha, formato, descarga, servicio, ogc, inspire, Urbanismo y Vivienda" />
+
+	
+	<meta name="robots" content="index,follow" />
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- <meta http-equiv="Content-Language" content="es" /> -->
+
+<!-- Inicio para scripts -->
+
+<script type="text/javascript">
+function isIE() {
+	var myNav = navigator.userAgent.toLowerCase();
+	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1])
+			: false;
+}
+
+function borrarContenidoBarra(){
+	document.getElementById("texto").value="";
+}
+var aytmad = {};
+aytmad.config = {
+    routes:{
+        menu:'assets/data/menu.json',
+        menuTramites:'assets/data/menu_tramites.json',
+        calendar:'04-buscador-agenda.html?vgnextchannel=27dfb4f19cce3210VgnVCM10000026205a0aRCRD&amp;cuando=cuandoDia&amp;enviar=Buscar&amp;newSearch=true&amp;fechaAccesible=',
+        taxonomias:'assets/data/XMLAutocompletarTaxonomias.xml'
+    },
+    constants:{
+        numVisibleLinks:3,
+        API_KEY: "AIzaSyBiYQM0X20DOGmT3IQ6sj4OrUeC3nEuvDs",
+        carouselHome_md: 9,
+        carouselHome_sm: 6
+    }
+};
+
+</script>
+
+
+<script type="text/javascript" src="assets/js/locale/i18n_es.js"></script>
+
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+ 
+<script type="text/javascript" src="js/ideam.js"></script>
+
+
+
+<!-- Fin para scripts -->
+
+<!-- Inicio para estilos -->
+
+
+<!--  Maqueta -->
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-print.min.css?version=POR-18-0401" media="print"/>
+
+<link rel="stylesheet" href="assets/css/vendor.css" type="text/css" />
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-bootstrap.min.css?version=POR-18-0401"/>
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-orange.min.css?version=POR-18-0401"/>
+
+<!--[if lt IE 9]>
+	<link rel="stylesheet" href="assets/css/ayuntamiento-madrid_ie8.min.css">
+<![endif] -->
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-custom.css?version=POR-18-0401"/>
+
+<!--[if lt IE 9]>
+	<script src="assets/js/vendorIE8.js"></script>
+<![endif] -->
+
+
+<!--[if lt IE 9] >
+	<link rel="stylesheet" href="assets/css/ayuntamiento-madrid_ie8.min.css" type="text/css" />
+<! [endif] -->
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-ajustes.css" type="text/css" />
+<!-- Fin para estilos -->
+
+</head>
+<body lang="es">
+	
+	
+
+
+
+<div id="wrapper">
+
+	<header class="header" style="background-image: url('assets/images/destacados/destacado-home1.png'); margin-bottom: 0px !important;">
+		<div class="container"> <!-- 		style="border-top:15px solid black !important;"--> 
+		<img src="assets/images/destacados/destacado-home1.png" alt=""
+					class="section-image" id="section-image" />
+			<div class="brand" style="margin-bottom: 30px !important;" >
+				<div class="row" style="margin-bottom: 0px !important;">
+					<div class="col-md-8">
+						<h1>
+							<a href='/IDEAM_WBGEOPORTAL/index.iam'>Geoportal del Ayuntamiento de Madrid</a>
+						</h1>
+					</div>
+					<div class="col-md-4 logo">
+						<a href='/IDEAM_WBGEOPORTAL/index.iam' accesskey="I"><img
+							src="assets/images/logo-madrid.png" alt="" /></a>
+					</div>
+				</div>
+			</div>
+
+
+				
+
+			<!--Buscador-->
+			<div class="panel panel-type1 searcher-diary nofluid" style="border-style: none; margin-top:-30px; margin-bottom: 20px;">
+<!-- 				<div class="panel-heading"> -->
+
+<!-- 				</div> -->
+				<div class="panel-body">
+<!-- 				<img class="logo2" src="js/visor/images/logo1.jpeg"> -->
+					
+					<form id="formularioBusqueda" name="formulario" class="form" action="/IDEAM_WBGEOPORTAL/dataset.iam?id=spagrafcan_1001CALLEJEROEJVIA2015_20160101" method="POST">					
+							<table class="tablaBusqueda" style="margin-left: 35px;">
+								<tbody>
+									<tr>
+										<td style="border: 3px solid rgba(0, 0, 0, 0) !important; border-right: 1px solid white !important;"><a accesskey="P" title="Portada Geoportal" href="/IDEAM_WBGEOPORTAL/index.iam"><img alt="" class="logo2" src="js/visor/images/logo1.jpeg"></a></td>
+										<td class="tdBotonBuscar" style="border: 1px solid white; border-left: 1px solid white; border-collapse: collapse;" onclick="buscar(false,'b')">
+											<i class="button-icon-search" accesskey="B" title="Buscar conjuntos de datos"></i>
+										</td>
+										<td class="tdBarraBusqueda"> 
+											<div class="form-group" style="margin-bottom: 0px !important;">
+												<input id="texto" name="texto" onkeypress="return checkEnter(event)" placeholder="Conjunto de datos a buscar" type="text" class="form-control" value="" maxlength="50"/>
+											</div> 
+										</td>
+										<td class = "botonBorrarBusqueda" onClick="borrarContenidoBarra()" >
+											X
+										</td>
+									</tr>
+								</tbody>
+							</table>						
+						<input id="hdcatPpal" name="catPpal" type="hidden" value=""/>
+						<input id="hdtipos" name="tipos" type="hidden" value=""/>
+						<input id="hdcategorias" name="categorias" type="hidden" value=""/>
+					</form>
+					
+					
+				</div>
+			</div>
+
+</div>
+
+</header>
+
+</div>
+	
+
+
+
+
+<script>
+	window.onload = function() {
+
+		// genera la url de donde generar el iframe
+		var link = document.getElementsByClassName("linkDescarga");
+		var l = ""
+		for (var i = 0; i < link.length; i++) {
+			if (!link[i].href){
+				continue;
+			}
+			if ((link[i].href.toLowerCase().indexOf("featureserver") > -1
+					|| link[i].href.toLowerCase().indexOf("mapserver") > -1) && !(link[i].href.toLowerCase().indexOf("getcapabilities") > -1)) {
+				l = "visor_mudo.iam?ArcGIS=" + link[i].href
+					break
+			} else if (link[i].href.toLowerCase().substr(link[i].href.length - 4,
+					link[i].href.length).indexOf(".geo") >= 0
+					&& l == "") {
+				l = "visor_mudo.iam?GeoRSS=" + link[i].href
+					break
+			} else if (link[i].href.toLowerCase().substr(link[i].href.length - 4,
+					link[i].href.length).indexOf(".kml") >= 0
+					&& l == "") {
+				l = "visor_mudo.iam?KML=" + link[i].href
+						break
+			} else if (link[i].href.toLowerCase().indexOf("wms") >= 0
+					&& l == "") {
+				l = "visor_mudo.iam?WMS=" + link[i].href
+			}  else if (link[i].href.toLowerCase().indexOf("wmts") >= 0
+					&& l == "") {
+				l = "visor_mudo.iam?WMTS=" + link[i].href
+			}
+		}
+
+		if (l != "") {
+			document.getElementById("iframe").src = l;
+			document.getElementById("iframe").style.display = "block"
+			document.getElementById("verMapa").href = l;
+			document.getElementById("verMapa").style.display = "block"
+		}
+		// 	$('#titulo2').addClass('event-link withIcoSerie')
+		// 	document.getElementById("titulo2").className = "event-link withIcoSerie"
+
+	}
+</script>
+
+
+<!-- EVENTOS DESTACADOS -->
+<div class="bg-fluid0">
+	<div class="container nofluid">
+
+
+
+		<div class="nofluid">
+
+
+
+			<br> <br> <br>
+
+			<ul class="events-results">
+
+				<li>
+
+
+
+					<div class="event-info">
+
+
+
+						<span class="event-type"> SECTOR PÚBLICO,SEGURIDAD,TRANSPORTE </span>
+						
+							
+							
+								<a class="event-link withIcoDataset">Callejero (ejes de vías y portales)</a>
+							
+							
+							
+						
+						<div class="event-intro">
+							<div id="module" class="container">
+								
+								
+									<p role="contentinfo" id="collapseExample" class="collapse" aria-expanded="false">
+										El callejero está compuesto por el viario y los números de portal. Las vías se representan mediante geometrías lineales con atributos como su nombre o el término municipal al que pertenecen. Los números de portal se representan mediante geometrías puntuales con atributos como su texto o la vía a la que pertenecen. El Mapa Callejero se actualiza mediante técnicas de fotointerpretación y recopilación de información en campo.<br>El producto se distribuye a nivel de municipios o toda la isla en formato shapefile.</p>
+									<a role="button" class="collapsed" data-toggle="collapse"
+										href="#collapseExample" aria-expanded="false"
+										aria-controls="collapseExample"> </a>
+								
+							</div>
+						</div>
+
+
+
+						<ul class="list-inline">
+							
+							<li><a id="verMapa" href="" target="_blank"
+								style="display: none"> <img alt=""
+									src="assets/images/ide/mapa.png"> Ver en mapa
+							</a></li>
+							<li><a id="infoAmpliada"
+								href="detalle.iam?id=spagrafcan_1001CALLEJEROEJVIA2015_20160101"><img
+									alt="" src="assets/images/ide/file2.png"> Información Ampliada </a>
+							</li>
+							<li><a href="./xml?id=spagrafcan_1001CALLEJEROEJVIA2015_20160101"
+								target="_blank"><img alt="" src="assets/images/ide/xml.png">XML
+									metadatos </a></li>
+							<li><a href="dcat?id=spagrafcan_1001CALLEJEROEJVIA2015_20160101" target="_blank"><img
+									alt="" src="assets/images/ide/dcat.png">RDF</a></li>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#myModal"><img
+									alt="" src="assets/css/img/Download.png">Descargas</a></li>
+							
+
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<!-- MAPA-->
+
+<div class="bg-fluid0">
+	<div class="container nofluid">
+		<iframe style="display: none;" id="iframe"
+			height=300 class="mapaMudo embed-responsive-item"> </iframe>
+	</div>
+</div>
+
+<div class="bg-fluid0">
+	<div class="container nofluid">
+		<h4 class="title6"></h4>
+
+
+		<div class="panel-group tramite-detalles">
+
+			<div class="panel">
+				<div class="panel-title">
+					<div class="panel-header-tramites">
+						<h4>
+							<a class="collapse" data-toggle="collapse" href="#masinfo"
+								data-parent=".tramite-detalles">Información Ampliada</a>
+						</h4>
+					</div>
+				</div>
+
+				<div id="masinfo" class="collapse in">
+					<div class="content-panel-detalle panel-body ">
+
+
+						<table class="table table-times">
+						<caption class="ocultarCaption">Información Ampliada</caption>
+							<tbody>
+								
+									<tr style="display: none">
+										<th>docuUId</th>
+										<td id="docuUId">{9658149A-964A-4B73-B6B7-CA60EA7EDBDD}</td>
+									</tr>
+								
+								
+									<tr style="display: none">
+										<th>titulo</th>
+										<td id="titulo1">Callejero (ejes de vías y portales)</td>
+									</tr>
+								
+								
+									<tr style="display: none">
+										<th>resumen</th>
+										<td id="resumen1">El callejero está compuesto por el viario y los números de portal. Las vías se representan mediante geometrías lineales con atributos como su nombre o el término municipal al que pertenecen. Los números de portal se representan mediante geometrías puntuales con atributos como su texto o la vía a la que pertenecen. El Mapa Callejero se actualiza mediante técnicas de fotointerpretación y recopilación de información en campo.<br>El producto se distribuye a nivel de municipios o toda la isla en formato shapefile.</td>
+									</tr>
+								
+								
+									<tr>
+										<th>Palabras Clave</th>
+										<td>Tipo sin especificar : <br>place : ESPAÑA;CANARIAS<br>theme : Redes de transporte;http://datos.gob.es/kos/sector-publico/sector/transporte;http://geoportal.madrid.es/Redes de transporte;Salud y seguridad humanas;http://datos.gob.es/kos/sector-publico/sector/seguridad;http://geoportal.madrid.es/Salud y seguridad humanas;Servicios de utilidad pública y estatales;http://datos.gob.es/kos/sector-publico/sector/sector-publico;http://geoportal.madrid.es/Servicios de utilidad pública y estatales</td>
+									</tr>
+								
+								
+									<tr>
+										<th>Formatos</th>
+										<td>SHP</td>
+									</tr>
+								
+								
+									<tr>
+										<th>Sistema de Referencia de Coordenadas</th>
+										<td>http://www.opengis.net/def/crs/EPSG/0/32628</td>
+									</tr>
+								
+								
+								
+								
+								
+								
+								
+								
+									<tr>
+										<th>Otras restricciones</th>
+										<td>Todos los productos de GRAFCAN están sujetos a los derechos de propiedad intelectual e
+industrial y son de su titularidad exclusiva, o de las personas físicas o jurídicas que se informe.</td>
+									</tr>
+								
+								
+								
+								
+									<tr style="display: none;">
+										<th>tipo</th>
+										<td id="tipo1">dataset</td>
+									</tr>
+								
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+
+			</div>
+			<!-- panel-->
+			
+				<div class="panel">
+					<div class="panel-title">
+						<div class="panel-header-tramites">
+							<h4>
+								<a class="collapsed" data-toggle="collapse" href="#descargas"
+									data-parent=".tramite-detalles">Descargas y enlaces</a>
+							</h4>
+						</div>
+					</div>
+
+					<div id="descargas" class="collapse ">
+						<div class="content-panel-detalle panel-body panel-body1">
+							
+
+
+								<div class="global-results">
+									<ul class="events-results">
+
+										
+											
+												<li class="withimage">
+													<div class="event-image-IDE">
+														<img src="assets/images/ide/Link.png" alt="">
+													</div>
+													<div class="event-info">
+														<span class="event-type">ENLACE</span>
+														
+															<a href="http://tiendavirtual.grafcan.es/" class="event-link linkDescarga"
+																target="_blank">Acceso a descarga de ficheros. </a>
+														
+														
+															<span class="event-intro">Servicio de venta y descarga.</span>
+														
+														
+															<span class="event-intro" style="display: none;">LINK</span>
+														
+													</div>
+												</li>
+											
+
+											
+
+											
+
+											
+											
+										
+									</ul>
+								</div>
+							
+						</div>
+					</div>
+
+				</div>
+			
+			<!-- panel-->
+			
+				<div class="panel">
+					<div class="panel-title">
+						<div class="panel-header-tramites">
+							<h4>
+								<a class="collapsed" data-toggle="collapse" href="#recursos"
+									data-parent=".tramite-detalles">Recursos Asociados</a>
+							</h4>
+						</div>
+					</div>
+
+					<div id="recursos" class="collapse ">
+						<div class="content-panel-detalle panel-body panel-body1">
+
+
+							<div class="global-results">
+								<ul class="events-results">
+									
+										<li class="withimage">
+											<div class="event-image-IDE">
+												<img src="assets/images/ide/docu.png" alt="">
+											</div>
+											<div class="event-info">
+												
+													<span class="event-type">SERVICIO RELACIONADO</span>
+												
+												
+													<a href="dataset.iam?id=spagrafcan_1001CALLEJEROEJVIA2015_20160101"
+														class="event-link ">WMS Mapa Callejero</a>
+												
+												
+													
+													
+														<span class="event-intro">Callejero digital elaborado mediante extracción de elementos cartográficos del Mapa Topográfico a escala 1:5.000, revisión de campo y edición en gabinete sobre ortofotos. El callejero incluye vías,...</span>
+													
+												
+
+											</div>
+										</li>
+									
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			
+			<!-- panel-->
+			
+			<!-- panel-->
+
+			
+				<div class="panel">
+					<div class="panel-title">
+						<div class="panel-header-tramites">
+							<h4>
+								<a class="collapsed" data-toggle="collapse" href="#contacto"
+									data-parent=".tramite-detalles">Contacto</a>
+							</h4>
+						</div>
+					</div>
+
+					<div id="contacto" class="collapse ">
+						<div class="content-panel-detalle panel-body panel-body1">
+
+
+							<div class="global-results" style="height: 20px;">
+								<ul class="events-results" style="height: 20px;">
+									
+										<li class="withimage">
+											<div class="event-image-IDE">
+												<img alt="Contacto" src="assets/images/ide/contact.png">
+											</div>
+											<div class="event-info">
+												
+													<span class="event-type">CONTACTO DEL METADATO</span>
+												
+												
+													
+													
+													
+														<a class="event-link1">Cartográfica de Canarias S.A (GRAFCAN). Gobierno de Canarias. Sede Gran Canaria</a>
+													
+												
+												
+													<span class="event-intro">Avda. Juan XXIII nº 7, P.3 - Of. 9 Edificio Campo España</span>
+												
+												<ul class="list-inline">
+													
+														<li><span><a
+																>+34 928 336 860</a></span></li>
+													
+													
+														<li><span><a
+																 target="_top">idecanarias@grafcan.com</a></span></li>
+													
+												</ul>
+											</div>
+										</li>
+									
+										<li class="withimage">
+											<div class="event-image-IDE">
+												<img alt="Contacto" src="assets/images/ide/contact.png">
+											</div>
+											<div class="event-info">
+												
+													<span class="event-type">CONTACTO DEL METADATO</span>
+												
+												
+													
+													
+													
+														<a class="event-link1">Cartográfica de Canarias S.A (GRAFCAN). Gobierno de Canarias. Sede Tenerife</a>
+													
+												
+												
+													<span class="event-intro">C/ Panamá nº 34 Naves 8 y 9. Polígono Costa Sur</span>
+												
+												<ul class="list-inline">
+													
+														<li><span><a
+																>+34 922 237 860</a></span></li>
+													
+													
+														<li><span><a
+																 target="_top">idecanarias@grafcan.com</a></span></li>
+													
+												</ul>
+											</div>
+										</li>
+									
+										<li class="withimage">
+											<div class="event-image-IDE">
+												<img alt="Contacto" src="assets/images/ide/contact.png">
+											</div>
+											<div class="event-info">
+												
+													<span class="event-type">CONTACTO DEL RECURSO</span>
+												
+												
+													
+													
+													
+														<a class="event-link1">Cartográfica de Canarias S.A (GRAFCAN). Gobierno de Canarias. Sede Gran Canaria</a>
+													
+												
+												
+													<span class="event-intro">Avda. Juan XXIII nº 7, P.3 - Of. 9 Edificio Campo España</span>
+												
+												<ul class="list-inline">
+													
+														<li><span><a
+																>+34 928 336 860</a></span></li>
+													
+													
+														<li><span><a
+																 target="_top">idecanarias@grafcan.com</a></span></li>
+													
+												</ul>
+											</div>
+										</li>
+									
+										<li class="withimage">
+											<div class="event-image-IDE">
+												<img alt="Contacto" src="assets/images/ide/contact.png">
+											</div>
+											<div class="event-info">
+												
+													<span class="event-type">CONTACTO DEL RECURSO</span>
+												
+												
+													
+													
+													
+														<a class="event-link1">Cartográfica de Canarias S.A (GRAFCAN). Gobierno de Canarias. Sede Tenerife</a>
+													
+												
+												
+													<span class="event-intro">C/ Panamá nº 34 Naves 8 y 9. Polígono Costa Sur</span>
+												
+												<ul class="list-inline">
+													
+														<li><span><a
+																>+34 922 237 860</a></span></li>
+													
+													
+														<li><span><a
+																 target="_top">idecanarias@grafcan.com</a></span></li>
+													
+												</ul>
+											</div>
+										</li>
+									
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			
+			<!-- panel-->
+		</div>
+		<!-- panel-group-->
+
+
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialogDesc">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     <div class="modal-headerDesc">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h4 class="modal-title">Descargas</h4>
+     </div>		
+      <div class="modal-bodyDesc">
+        <iframe id="myIframeDialog" src="./descargasDisponibles.iam?fileIdent=spagrafcan_1001CALLEJEROEJVIA2015_20160101"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btnVolver" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+	﻿
+
+
+<footer class="footer hidden-print" style="background-color: #000">
+	<iframe class="iframePie" id="iframePie" scrolling="no" src='https://wpgeoportal.madrid.es/'></iframe>
+</footer>
+
+
+
+	<script type="text/javascript"
+		src="assets/js/vendor.min.js"></script>
+	<script type="text/javascript"
+		src="assets/js/ayuntamiento-madrid.min.js"></script>
+</body>
+	
+</html>
