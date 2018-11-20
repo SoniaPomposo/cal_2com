@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+<!--[if IE 8]>         <html class="no-js ie8" lang="es" xml:lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" xml:lang="es"> <!--<![endif]-->
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+	<title>Geoportal del Ayuntamiento de Madrid</title>
+	<meta name="title" content="Geoportal del Ayuntamiento de Madrid" />
+
+	
+	<meta name="description" content="Espacio para buscar, visualizar y descargar mapas y datos georreferenciados del municipio de Madrid. La Infraestructura de Datos Espaciales de Madrid cuenta con servicios OGC, INSPIRE y ficheros en formatos SHP, DWG, DGN, GEOJSON, KML" />
+
+	
+	<meta name="keywords" content="Ide, Geoportal, mapas, inspire, ogc, localizar, descargar, georreferenciado, catálogo, metadatos" />
+
+	
+	<meta name="robots" content="index,follow" />
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- <meta http-equiv="Content-Language" content="es" /> -->
+
+<!-- Inicio para scripts -->
+
+<script type="text/javascript">
+function isIE() {
+	var myNav = navigator.userAgent.toLowerCase();
+	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1])
+			: false;
+}
+
+function borrarContenidoBarra(){
+	document.getElementById("texto").value="";
+}
+var aytmad = {};
+aytmad.config = {
+    routes:{
+        menu:'assets/data/menu.json',
+        menuTramites:'assets/data/menu_tramites.json',
+        calendar:'04-buscador-agenda.html?vgnextchannel=27dfb4f19cce3210VgnVCM10000026205a0aRCRD&amp;cuando=cuandoDia&amp;enviar=Buscar&amp;newSearch=true&amp;fechaAccesible=',
+        taxonomias:'assets/data/XMLAutocompletarTaxonomias.xml'
+    },
+    constants:{
+        numVisibleLinks:3,
+        API_KEY: "AIzaSyBiYQM0X20DOGmT3IQ6sj4OrUeC3nEuvDs",
+        carouselHome_md: 9,
+        carouselHome_sm: 6
+    }
+};
+
+</script>
+
+
+<script type="text/javascript" src="assets/js/locale/i18n_es.js"></script>
+
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+ 
+<script type="text/javascript" src="js/ideam.js"></script>
+
+
+
+<!-- Fin para scripts -->
+
+<!-- Inicio para estilos -->
+
+
+<!--  Maqueta -->
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-print.min.css?version=POR-18-0401" media="print"/>
+
+<link rel="stylesheet" href="assets/css/vendor.css" type="text/css" />
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-bootstrap.min.css?version=POR-18-0401"/>
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-orange.min.css?version=POR-18-0401"/>
+
+<!--[if lt IE 9]>
+	<link rel="stylesheet" href="assets/css/ayuntamiento-madrid_ie8.min.css">
+<![endif] -->
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-custom.css?version=POR-18-0401"/>
+
+<!--[if lt IE 9]>
+	<script src="assets/js/vendorIE8.js"></script>
+<![endif] -->
+
+
+<!--[if lt IE 9] >
+	<link rel="stylesheet" href="assets/css/ayuntamiento-madrid_ie8.min.css" type="text/css" />
+<! [endif] -->
+
+<link rel="stylesheet" href="assets/css/ayuntamiento-madrid-ajustes.css" type="text/css" />
+<!-- Fin para estilos -->
+
+</head>
+<body lang="es">
+	
+	
+
+
+
+<div id="wrapper">
+
+	<header class="header header2">
+		<div
+			style="height: 100%; width: 100%; background-image: url('assets/images/destacados/destacado-home.png '); background-size: cover; background-repeat: no-repeat;">
+			<div class="container">
+				<div class="brand">
+					<div class="row">
+						<div class="col-md-8">
+							<h1>
+								<a href='/IDEAM_WBGEOPORTAL/index.iam'>Geoportal del Ayuntamiento de Madrid</a>
+							</h1>
+						</div>
+						<div class="col-md-4 logo">
+							<a target="_blank" href='https://www.madrid.es/' accesskey="I"><img
+								src="assets/images/logo-madrid.png" alt="" /></a>
+						</div>
+					</div>
+				</div>
+				
+					<div class="info-seccion">
+						
+							<div 
+							
+								
+								
+									class="modal-alert modal-info"
+								
+								
+							
+							>
+							<p class="title-modal">Cierre previsto</p>
+							<p>Por razones de mantenimiento... cerramos hasta nuevo aviso!</p>
+							<a class="link-modal" href="https://www.madrid.es/portal/site/munimadrid" target="_blank">Más info aqui</a>
+					</div>
+					
+				</div>
+				
+			
+
+
+			<!--Buscador-->
+			<div
+			
+				
+					class="panel panel-type1 searcher-diary nofluid"
+						style="margin-top: 45px;">
+				
+				
+			
+			>
+			<div class="panel-heading">
+					<span class="panel-title"><img alt="" class="logo1"
+						src="js/visor/images/logo1.jpeg"/></span>
+				</div>
+			
+			<div class="panel-body">
+				<form class="form" id="formularioBusqueda" action=""
+					method="post">
+						<table class="tablaBusqueda">
+							<tbody>
+								<tr>
+									<td class="tdBotonBuscar" onclick="buscar(false,'b')"><i
+										class="button-icon-search" title="Buscar conjuntos de datos"></i></td>
+									<td class="tdBarraBusqueda">
+										<div class="form-group" style="margin-bottom: 0px !important;">
+											<input type="text" value="" maxlength="50"
+												class="form-control" id="texto" name="texto"
+												placeholder="Conjunto de datos a buscar" onkeypress="return checkEnter(event)" />
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					
+					
+					<input type="hidden" id="hdcatPpal" name="catPpal" value="" />
+					<input type="hidden" id="hdtipos" name="tipos" value="" />
+					<input type="hidden" id="hdcategorias" name="categorias" value="" />
+				</form>
+				
+				
+			</div>
+		</div>
+	</header>
+</div>
+	    
+
+
+
+
+    <style>
+            .carouselHome  a:before{
+                color: white;
+            }
+    
+             .carousel_text{
+                color: #FFFFFF;
+            }
+    
+
+
+            .carouselHome .mediorural a:before{
+                content:"D"
+            }
+
+
+            .carouselHome .sectorpublico a:before{
+                content:"B"
+            }
+
+            .carouselHome .demografia a:before{
+                content:"A"
+            }
+
+            .carouselHome .cienciaytecnologia a:before{
+                content:"P"
+            }
+
+            .carouselHome .comercio a:before{
+                content:"f"
+            }
+
+            .carouselHome .energia a:before{
+                content:"d"
+            }
+
+            .carouselHome .legislacionyjusticia a:before{
+                content:"d"
+            }
+
+            .carouselHome .industria a:before{
+                content:"t"
+            }
+
+            .carouselHome .seguridad a:before{
+                content:"C"
+            }
+
+
+            .carouselHome .vivienda a:before{
+                content:"E"
+            }            
+
+
+
+    </style>
+
+	
+	
+<!-- Los más destacados  -->
+<div class="bg-fluid0">
+    <div class="container nofluid">
+        <div class="al-minuto">
+            <h2 class="title3 title3_small1">Los más populares</h2>
+             <!--<p class="date hidden-xs">Martes <span class="muted">22 / Nov</span></p> -->
+             <ul class="row">
+	             
+		             <li class="col-sm-6 col-md-3">
+		                 <a class="title" href="dataset.iam?id=IdentFicheroKKk">
+		                 	<div class="items">
+		                    	<div class="content-box comercio air-quality">
+		                    		Comercio,Economía
+		                        	<p>Recurso bueno de prueba</p>
+		                         </div>
+		                     </div>
+		                 </a>
+		            </li>		             
+                 
+		             <li class="col-sm-6 col-md-3">
+		                 <a class="title" href="dataset.iam?id=spagrafcan_133MT012009_20160101">
+		                 	<div class="items">
+		                    	<div class="content-box transporte air-quality">
+		                    		Transporte,Turismo,Urbanismo e infraestructuras,Vivienda
+		                        	<p>Mapa Topográfico 1:1.000. Año 2009</p>
+		                         </div>
+		                     </div>
+		                 </a>
+		            </li>		             
+                 
+		             <li class="col-sm-6 col-md-3">
+		                 <a class="title" href="dataset.iam?id=ES.BFA.CP.MD">
+		                 	<div class="items">
+		                    	<div class="content-box  air-quality">
+		                    		
+		                        	<p>Cadastral parcels of Bizkaia, INSPIRE</p>
+		                         </div>
+		                     </div>
+		                 </a>
+		            </li>		             
+                 
+		             <li class="col-sm-6 col-md-3">
+		                 <a class="title" href="dataset.iam?id=spagrafcan_1001CALLEJEROEJVIA2015_20160101">
+		                 	<div class="items">
+		                    	<div class="content-box sector-publico air-quality">
+		                    		Sector público,Seguridad,Transporte
+		                        	<p>Callejero (ejes de vías y portales)</p>
+		                         </div>
+		                     </div>
+		                 </a>
+		            </li>		             
+                 
+             </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Destacados-->
+
+
+
+<div class="bg-fluid0">
+    <div class="container nofluid">  
+            <div class="row">
+                    <h2 class="title3 title3_small1">Contenidos destacados</h2>
+
+		
+			<div class="col-sm-3">
+				<div class="news-item ">
+
+					<div class="news-image">
+						<img width="230" height="230" src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/destacados/Destacado_b5433387-083f-435e-96ea-4e76f48ed296.png" alt="CENSO DE LOCALES"/>
+					</div>
+
+					<div class="news-body">
+						<h4 class="news-title">
+							<a
+							 	title="CENSO DE LOCALES" href="https://desa6inter.munimadrid.es/IDEAM_WBGEOPORTAL/datasetDA.iam?id=https://datos.madrid.es/egob/catalogo/200085-0-censo-locales">CENSO DE LOCALES</a>
+						</h4>
+
+
+						<div class="news-intro">
+							<p>Ubicación y actividad de locales en planta baja</p>
+						</div>
+
+
+					</div>
+
+
+				</div>
+			</div>								
+           
+			<div class="col-sm-3">
+				<div class="news-item ">
+
+					<div class="news-image">
+						<img width="230" height="230" src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/destacados/Destacado_a4e4594a-ef37-4eea-9159-a05e31862f4d.png" alt="BIC BIP"/>
+					</div>
+
+					<div class="news-body">
+						<h4 class="news-title">
+							<a
+							 	title="BIC BIP" href="http://www.madrid.org/cs/Satellite?c=CM_InfPractica_FA&cid=1354256252545&language=es&pagename=ComunidadMadrid%2FEstructura">BIC BIP</a>
+						</h4>
+
+
+						<div class="news-intro">
+							<p>BIENES DE INTERÉS CULTURAL Y PATRIMONIAL</p>
+						</div>
+
+
+					</div>
+
+
+				</div>
+			</div>								
+           
+			<div class="col-sm-3">
+				<div class="news-item ">
+
+					<div class="news-image">
+						<img width="230" height="230" src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/destacados/Destacado_13d1e98d-74ed-469d-bd60-250976213d9c.png" alt="PLAN MAD-RE 2017"/>
+					</div>
+
+					<div class="news-body">
+						<h4 class="news-title">
+							<a
+							 	title="PLAN MAD-RE 2017" href="https://www.madrid.es/portales/munimadrid/es/Inicio/Vivienda-y-urbanismo/Plan-MAD-RE?vgnextoid=e000cb5ee0993510VgnVCM1000001d4a900aRCRD&vgnextchannel=593e31d3b28fe410VgnVCM1000000b205a0aRCRD">PLAN MAD-RE 2017</a>
+						</h4>
+
+
+						<div class="news-intro">
+							<p>Plan Madrid Recupera 2017</p>
+						</div>
+
+
+					</div>
+
+
+				</div>
+			</div>								
+           
+			<div class="col-sm-3">
+				<div class="news-item ">
+
+					<div class="news-image">
+						<img width="230" height="230" src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/destacados/Destacado_da9383a3-f9ea-4b12-8a73-6639a2f21452.png" alt="PG97. ANÁLISIS EDIFICACIÓN"/>
+					</div>
+
+					<div class="news-body">
+						<h4 class="news-title">
+							<a
+							 	title="PG97. ANÁLISIS EDIFICACIÓN" href="https://desa6inter.munimadrid.es/IDEAM_WBGEOPORTAL/datasetDA.iam?id=https://datos.madrid.es/egob/catalogo/300136-0-ordenaci%C3%B3n-urbana">PG97. ANÁLISIS EDIFICACIÓN</a>
+						</h4>
+
+
+						<div class="news-intro">
+							<p>Plano de Análisis de la Edificación. Plan General 1997</p>
+						</div>
+
+
+					</div>
+
+
+				</div>
+			</div>								
+                   
+          </div>
+                                                 
+                                             
+                            
+    </div>
+</div>
+<!--Carrousel-->
+
+<div class="bg-fluid0">
+        <div class="container nofluid">  
+                <div class="header-carousel">
+                        <h2 class="title3 title3_small1">Explore por categorías temáticas</h2>
+                        <ul id="carouselHome" class="owl-carousel carouselHome" data-text-show="VER TODOS LOS TEMAS" data-text-hide="OCULTAR TEMAS">
+                                <li class="item sectorpublico"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/sector-publico')"><p class="carousel_text">Sector público</p></a></li>
+                                <li class="item serviciossociales"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/sociedad-bienestar')"><p class="carousel_text">Sociedad y bienestar</p></a></li>
+                                <li class="item economia"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/economia')"><p class="carousel_text">Economía</p></a></li>
+                                <li class="item demografia"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/demografia')"><p class="carousel_text">Demografía</p></a></li>
+                                <li class="item medioambiente"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/medio-ambiente')"><p class="carousel_text">Medio ambiente</p></a></li>
+                                <li class="item educacion"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/educacion')"><p class="carousel_text">Educación</p></a></li>
+                                <li class="item culturayocio"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/cultura-ocio')"><p class="carousel_text">Cultura y ocio</p></a></li>
+                                <li class="item hacienda"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/hacienda')"><p class="carousel_text">Hacienda</p></a></li>
+                                <li class="item oposicionesyempleo"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/empleo')"><p class="carousel_text">Empleo</p></a></li>
+                                <li class="item turismo"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/turismo')"><p class="carousel_text">Turismo</p></a></li>
+                                <li class="item salud"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/salud')"><p class="carousel_text">Salud</p></a></li>
+                                <li class="item movilidad"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/transporte')"><p class="carousel_text">Transporte</p></a></li>
+                                <li class="item urbanismo"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/urbanismo-infraestructuras')"><p class="carousel_text">Urbanismo e infraestructuras</p></a></li>
+                                <li class="item cienciaytecnologia"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/ciencia-tecnologia')"><p class="carousel_text">Ciencia y tecnología</p></a></li>
+                                <li class="item mediorural"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca')"><p class="carousel_text">Medio Ambiente</p></a></li>
+                                <li class="item vivienda"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/vivienda')"><p class="carousel_text">Vivienda</p></a></li>
+                                <li class="item seguridad"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/seguridad')"><p class="carousel_text">Seguridad</p></a></li>
+                                <li class="item comercio"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/comercio')"><p class="carousel_text">Comercio</p></a></li>
+                                <li class="item emergenciasyseguridad"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/energia')"><p class="carousel_text">Energía</p></a></li>
+                                <li class="item transparencia"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/legislacion-justicia')"><p class="carousel_text">Legislación y justicia</p></a></li>
+                                <li class="item industria"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/industria')"><p class="carousel_text">Industria</p></a></li>
+                                <li class="item deportes"><a href="javascript:void(0)" onclick="buscarCatPpal('http://datos.gob.es/kos/sector-publico/sector/deporte')"><p class="carousel_text">Deporte</p></a></li>
+                            
+                        </ul>
+                    </div>
+  </div>
+</div> 
+<!-- A un Clic-->
+      
+      <div class="bg-fluid0">
+            <div class="container">
+                <div class="container-info_relevant nofluid">
+                        <div class="info_relevant_title">
+                            <h2 class="title3 title3_small1">Visores y aplicaciones</h2>
+                        </div>
+                        
+	        <ul class="row">
+		                                                  
+		          	<li class="col-md-3 col-sm-3 col-xs-12">
+			            <div class="element_info_relevant element_info_relevant-type2">
+			                <div class="info_relevant_img">
+<!-- 			                    <img src="assets/images/info-relacionado/plan_madrid_incluye.jpg" alt="Accesibilidad" class="info_relevant"/> -->
+			                	<img src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/visores/Visor_d72c2dcb-637b-46a8-8e25-becd851c0110.png" alt="VISOR IDE" class="info_relevant"/>
+			                </div>
+			                <div class="info_relevant-content info_relevant-text info_relevant-img_text info_relevant-bg">
+			                    <a target="_blank" href="https://desa6inter.munimadrid.es/IDEAM_WBGEOPORTAL/visor_ide.iam" title="VISOR IDE">VISOR IDE</a>
+			                </div>
+			            </div>
+		        	</li>
+				                                          
+		          	<li class="col-md-3 col-sm-3 col-xs-12">
+			            <div class="element_info_relevant element_info_relevant-type2">
+			                <div class="info_relevant_img">
+<!-- 			                    <img src="assets/images/info-relacionado/plan_madrid_incluye.jpg" alt="Accesibilidad" class="info_relevant"/> -->
+			                	<img src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/visores/Visor_cc00256b-6b23-44bd-9406-24ec5b33e0e2.png" alt="VISOR 3D" class="info_relevant"/>
+			                </div>
+			                <div class="info_relevant-content info_relevant-text info_relevant-img_text info_relevant-bg">
+			                    <a target="_blank" href="https://desa6inter.munimadrid.es/IDEAM_WBGEOPORTAL/visor_3d.iam" title="VISOR 3D">VISOR 3D</a>
+			                </div>
+			            </div>
+		        	</li>
+				                                          
+		          	<li class="col-md-3 col-sm-3 col-xs-12">
+			            <div class="element_info_relevant element_info_relevant-type2">
+			                <div class="info_relevant_img">
+<!-- 			                    <img src="assets/images/info-relacionado/plan_madrid_incluye.jpg" alt="Accesibilidad" class="info_relevant"/> -->
+			                	<img src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/visores/Visor_e39738b3-1af8-4577-bee9-b3d2ada9abc2.png" alt="VISOR URBANISTICO" class="info_relevant"/>
+			                </div>
+			                <div class="info_relevant-content info_relevant-text info_relevant-img_text info_relevant-bg">
+			                    <a target="_blank" href="http://www-2.munimadrid.es/urbanismo_inter/visualizador/index_inter.jsp" title="VISOR URBANISTICO">VISOR URBANISTICO</a>
+			                </div>
+			            </div>
+		        	</li>
+				                                          
+		          	<li class="col-md-3 col-sm-3 col-xs-12">
+			            <div class="element_info_relevant element_info_relevant-type2">
+			                <div class="info_relevant_img">
+<!-- 			                    <img src="assets/images/info-relacionado/plan_madrid_incluye.jpg" alt="Accesibilidad" class="info_relevant"/> -->
+			                	<img src="https://desa6inter.munimadrid.es/fsdescargas/IDEAM_WBGEOPORTAL/GEOPORTAL/images/visores/Visor_c0fd1f53-eee3-4bb1-aa97-1e0cdd6cba54.png" alt="MADRID VERDE" class="info_relevant"/>
+			                </div>
+			                <div class="info_relevant-content info_relevant-text info_relevant-img_text info_relevant-bg">
+			                    <a target="_blank" href="https://www.google.com/search?source=hp&ei=iUmjW-aBKcqlsAGitJ_ICg&q=madrid+verde&oq=madrid+verde&gs_l=psy-ab.3..0j0i22i30k1l9.1727.3609.0.3891.14.13.0.0.0.0.122.1085.10j2.13.0....0...1.1.64.psy-ab..1.13.1197.6..35i39k1j0i131i67k1j0i67k1j0i131k1.118.vnrc9gnWSME" title="MADRID VERDE">MADRID VERDE</a>
+			                </div>
+			            </div>
+		        	</li>
+				                                
+	        </ul>
+
+     
+                </div>
+            </div>
+        </div>
+	﻿
+
+
+<footer class="footer hidden-print" style="background-color: #000">
+	<iframe class="iframePie" id="iframePie" scrolling="no" src='https://wpgeoportal.madrid.es/'></iframe>
+</footer>
+
+
+
+	<script type="text/javascript"
+		src="assets/js/vendor.min.js"></script>
+	<script type="text/javascript"
+		src="assets/js/ayuntamiento-madrid.min.js"></script>
+</body>
+	
+</html>
